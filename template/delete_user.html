@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{p.first_name}}{{p.last_name}}</details></details></title>
+</head>
+<body>
+    <h1>{{p.fist_name}}{{p.last_name}}</h1>
+    <form action="/users/<int:users.id>/delete" method="POST">
+        <input type="text" name="first name" placeholder="Enter a first name">
+        <input type="text" name="last name" placeholder="Enter a name name">
+        <input type="url" name="url" placeholder="Enter a url">
+        <button>Edit</button>
+        <button>Delete</button>
+    </form>
+</body>
+</html>
