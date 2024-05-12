@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{post.title}}</title>
+</head>
+<body>
+    <h1>{{post.tile}}</h1>
+    <p><i> By {{post.user.first_name}}{{post.user.last_name}} on {{post.friendly_date}}</i></p>
+
+    <form>
+        <button class="btn btn-outline-primary" formmethod="get"
+        formaction="/users/{{ post.user_id }}">Cancel</button>
+
+        <button class="btn btn-primary" formmethod="get"
+        formaction="/posts/{{ post.id }}/edit">edit</button>
+
+        <button class="btn btn-danger"
+          formmethod="POST"
+          formaction="/posts/{{ post.id }}/delete">Delete</button>
+          
+    </form>
+
+</body>
+</html>
