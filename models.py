@@ -60,12 +60,33 @@ class Post(db.Model):
     created_at = db.Column(db.DateTime,
         nullable=False)
     
-    user_id = db.Column(db.Text, db.ForeignKey("'users.id'"), nullable = False)
+    user_id = db.Column(db.Text, db.ForeignKey("users.id"), nullable = False)
 
 def friendly_date(self):
         """Return nicely-formatted date."""
 
         return self.created_at.strftime("%a %b %-d  %Y, %-I:%M %p")
+
+
+
+#####################################################################################################
+##PART 3##
+
+class Tag (db.Model):
+    __tablename__ = "tags"
+
+    id = db.Column(db.Interger, primary_key = True, autoincrement=True)
+
+    name = db.Column(db.Text, nullable = False, unique = True)
+
+    Post = db.relationship('Post', secondary = 'post_tags', backref = 'tags')
+
+class Posttag(db.Model):
+    __tablename__ = "post_tags"
+
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), primary_key=True)
+
+    tag_id = db.Column(db.Integer, db.ForeignKey('tag.id'), primary_key=True)
 
 
 if __name__ == "__main__":
